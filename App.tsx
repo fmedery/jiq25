@@ -10,7 +10,7 @@ import GeneratingView from './components/GeneratingView';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import GoogleGLogo from './components/GoogleGLogo';
 
-const DECADES_TO_GENERATE = [1920, 1930, 1950, 1960, 1970, 1980];
+const DECADES_TO_GENERATE = [1930, 1950, 1960, 1970, 1980, 2000];
 
 function App() {
   const [step, setStep] = useState<AppStep>(AppStep.LANDING);
