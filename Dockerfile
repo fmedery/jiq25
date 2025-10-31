@@ -29,4 +29,4 @@ RUN npm install --production
 
 EXPOSE 3000
 
-CMD ["npm", "run", "preview", "--", "--port", "3000"]
+CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "$PORT"]
