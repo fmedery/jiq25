@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import type { LocaleStrings, GeneratedImage } from '../types';
-import Spinner from './Spinner';
+import type { LocaleStrings, GeneratedImage } from '@/types';
+import GoogleGLogo from './GoogleGLogo';
 
 interface GeneratingViewProps {
   texts: LocaleStrings['generating'];
@@ -22,7 +22,9 @@ const GeneratingView: React.FC<GeneratingViewProps> = ({ texts, current, total, 
 
   return (
     <div className="flex flex-col items-center justify-center text-center p-8 w-full">
-      <Spinner />
+      <div className="relative w-12 h-12 animate-pulse">
+        <GoogleGLogo />
+      </div>
       <h2 className="text-3xl font-bold text-white mt-8 mb-2">{texts.title}</h2>
       <p className="text-blue-200 max-w-lg mb-8 font-raleway">{texts.subtitle}</p>
       
