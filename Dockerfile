@@ -1,5 +1,6 @@
 # Stage 1: Build the application
-FROM node:20-alpine AS build
+FROM node:22-alpine AS build
+RUN apk update && apk upgrade
 
 WORKDIR /app
 
@@ -15,7 +16,8 @@ ENV GEMINI_API_KEY=$GEMINI_API_KEY
 RUN npm run build
 
 # Stage 2: Serve the application
-FROM node:20-alpine
+FROM node:22-alpine
+RUN apk update && apk upgrade
 
 WORKDIR /app
 
@@ -27,4 +29,4 @@ RUN npm install --production
 
 EXPOSE 3000
 
-CMD ["npm", "run", "preview"]
+CMD ["npm", "run", "preview", "--", "--port", "3000"]
