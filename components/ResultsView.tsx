@@ -15,7 +15,12 @@ const ResultsView: React.FC<ResultsViewProps> = ({ images, onReset, texts }) => 
     const handleDownloadAll = async () => {
         setIsDownloading(true);
         try {
-            await generateContactSheet(images);
+            await generateContactSheet(
+                images,
+                texts.contactSheetTitle,
+                texts.contactSheetSubtitle,
+                texts.contactSheetFooter
+            );
         } catch (error) {
             console.error("Failed to generate contact sheet:", error);
             alert("Could not generate contact sheet. Please try downloading images individually.");

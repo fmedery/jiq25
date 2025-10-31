@@ -1,6 +1,11 @@
 import type { GeneratedImage } from "../types";
 
-export const generateContactSheet = async (images: GeneratedImage[]): Promise<void> => {
+export const generateContactSheet = async (
+    images: GeneratedImage[],
+    title: string,
+    subtitle: string,
+    footer: string
+): Promise<void> => {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -15,10 +20,11 @@ export const generateContactSheet = async (images: GeneratedImage[]): Promise<vo
     const columns = 3;
     const rows = 2;
     const padding = 50;
-    const titleHeight = 80;
+    const titleHeight = 120; // Increased for subtitle
+    const footerHeight = 50;
 
     canvas.width = columns * imgWidth + (columns + 1) * padding;
-    canvas.height = rows * imgHeight + (rows + 1) * padding + titleHeight;
+    canvas.height = rows * imgHeight + (rows + 1) * padding + titleHeight + footerHeight;
 
     // Fill background
     ctx.fillStyle = '#111827'; // dark gray
@@ -28,7 +34,11 @@ export const generateContactSheet = async (images: GeneratedImage[]): Promise<vo
     ctx.fillStyle = '#F9FAFB'; // light gray
     ctx.font = 'bold 48px sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('Past Forward', canvas.width / 2, titleHeight);
+    ctx.fillText(title, canvas.width / 2, 80);
+
+    // Add subtitle
+    ctx.font = '24px sans-serif';
+    ctx.fillText(subtitle, canvas.width / 2, 120);
 
     // Draw images
     for (let i = 0; i < sortedImages.length; i++) {
@@ -51,6 +61,11 @@ export const generateContactSheet = async (images: GeneratedImage[]): Promise<vo
         ctx.textAlign = 'center';
         ctx.fillText(imgData.decade.toString(), x + imgWidth / 2, y + imgHeight - 10);
     }
+
+    // Add footer
+    ctx.fillStyle = '#F9FAFB';
+    ctx.font = '16px sans-serif';
+    ctx.fillText(footer, canvas.width / 2, canvas.height - 20);
     
     downloadCanvas(canvas, 'past-forward-contact-sheet.jpg');
 };

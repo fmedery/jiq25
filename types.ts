@@ -32,6 +32,9 @@ export interface LocaleStrings {
   };
   results: {
     title: string;
+    contactSheetTitle: string;
+    contactSheetSubtitle: string;
+    contactSheetFooter: string;
     downloadAllButton: string;
     startOverButton: string;
     downloadTooltip: string;

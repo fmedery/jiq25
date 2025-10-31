@@ -28,6 +28,9 @@ export const locales: Record<'en' | 'fr', LocaleStrings> = {
     },
     results: {
       title: 'Your Journey Through Time',
+      contactSheetTitle: 'Past Forward',
+      contactSheetSubtitle: 'A journey through the decades',
+      contactSheetFooter: 'Made with ❤️ by Google Montreal with Google AI Studio',
       downloadAllButton: 'Download Contact Sheet',
       startOverButton: 'Start Over',
       downloadTooltip: 'Download Photo'
@@ -65,6 +68,9 @@ export const locales: Record<'en' | 'fr', LocaleStrings> = {
     },
     results: {
       title: 'Votre Voyage Dans Le Temps',
+      contactSheetTitle: 'Passé Recomposé',
+      contactSheetSubtitle: 'Un voyage à travers les décennies',
+      contactSheetFooter: 'Fait avec ❤️ par Google Montreal grâce à Google AI Studio',
       downloadAllButton: 'Télécharger la Planche Contact',
       startOverButton: 'Recommencer',
       downloadTooltip: 'Télécharger la Photo'
