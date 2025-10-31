@@ -24,7 +24,7 @@ const GeneratingView: React.FC<GeneratingViewProps> = ({ texts, current, total, 
     <div className="flex flex-col items-center justify-center text-center p-8 w-full">
       <Spinner />
       <h2 className="text-3xl font-bold text-white mt-8 mb-2">{texts.title}</h2>
-      <p className="text-blue-200 max-w-lg mb-8">{texts.subtitle}</p>
+      <p className="text-blue-200 max-w-lg mb-8 font-raleway">{texts.subtitle}</p>
       
       <div className="w-full max-w-md bg-gray-700 rounded-full h-2.5 mb-2">
         <div 
@@ -36,7 +36,7 @@ const GeneratingView: React.FC<GeneratingViewProps> = ({ texts, current, total, 
         {texts.progress(current, total)}
       </p>
 
-      <p className="text-lg text-gray-400 h-6 transition-opacity duration-500 mb-8">
+      <p className="text-lg text-gray-400 h-6 transition-opacity duration-500 mb-8 font-raleway">
         {texts.messages[messageIndex]}
       </p>
 

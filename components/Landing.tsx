@@ -61,10 +61,10 @@ const Landing: React.FC<LandingProps> = ({ onStart, texts, language, setLanguage
       
       {/* Content container: z-index ensures it's on top of the absolute background elements. */}
       <div className="relative z-10 animate-fade-in flex flex-col items-center">
-        <h1 className="text-6xl md:text-8xl font-extrabold text-white mb-4 tracking-tighter" style={{ textShadow: '0 4px 15px rgba(0,0,0,0.5)' }}>
+        <h1 className="text-6xl md:text-8xl font-extrabold text-white mb-4 tracking-tighter font-orbitron" style={{ textShadow: '0 4px 15px rgba(0,0,0,0.5)' }}>
           {texts.title}
         </h1>
-        <p className="text-lg md:text-xl text-blue-200 max-w-2xl mx-auto mb-10">
+        <p className="text-lg md:text-xl text-blue-200 max-w-2xl mx-auto mb-10 font-raleway">
           {texts.description}
         </p>
         <button

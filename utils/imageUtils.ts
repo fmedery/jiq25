@@ -44,12 +44,12 @@ export const generateContactSheet = async (images: GeneratedImage[]): Promise<vo
 
         // Add decade label
         ctx.fillStyle = 'rgba(0, 0, 0, 0.6)';
-        ctx.fillRect(x, y + imgHeight - 40, imgWidth, 40);
+        ctx.fillRect(x, y + imgHeight - 30, imgWidth, 30);
         
         ctx.fillStyle = '#FFFFFF';
-        ctx.font = '24px sans-serif';
+        ctx.font = '18px sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText(imgData.decade.toString(), x + imgWidth / 2, y + imgHeight - 12);
+        ctx.fillText(imgData.decade.toString(), x + imgWidth / 2, y + imgHeight - 10);
     }
     
     downloadCanvas(canvas, 'past-forward-contact-sheet.jpg');

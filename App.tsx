@@ -67,7 +67,7 @@ function App() {
       return (
         <div className="text-center p-8 text-white">
           <h2 className="text-2xl font-bold text-red-400 mb-4">{texts.error.title}</h2>
-          <p className="text-gray-300 mb-6">{error}</p>
+          <p className="text-gray-300 mb-6 font-raleway">{error}</p>
           <button
             onClick={resetApp}
             className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors"
@@ -98,7 +98,7 @@ function App() {
   // Special full-screen layout for the landing page
   if (step === AppStep.LANDING) {
     return (
-      <div className="bg-gray-900 font-sans relative">
+      <div className="bg-gray-900 font-sans relative font-raleway">
         <div className="absolute top-4 left-4 z-20">
             <GoogleGLogo />
         </div>
@@ -114,7 +114,7 @@ function App() {
 
   // Centered layout for the rest of the app
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col items-center justify-center p-4 font-sans relative">
+    <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col items-center justify-center p-4 font-sans relative font-raleway">
       <main className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
         {renderContent()}
       </main>
