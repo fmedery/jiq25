@@ -1,0 +1,14 @@
+# dependencies
+node_modules
+
+# build artifacts
+dist
+.vite
+.env
+.DS_Store
+
+# misc
+.git
+.gitignore
+.dockerignore
+npm-debug.log
