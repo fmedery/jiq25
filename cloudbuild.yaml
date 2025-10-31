@@ -19,3 +19,7 @@ steps:
     args:
       - 'push'
       - 'us-central1-docker.pkg.dev/$PROJECT_ID/jiq25/jiq25-image:latest'
+# Grant the service account the necessary permissions to push to Artifact Registry
+serviceAccount: 'projects/$PROJECT_ID/serviceAccounts/jiq25'
+options:
+  logging: CLOUD_LOGGING_ONLY
