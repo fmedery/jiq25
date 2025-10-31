@@ -1,0 +1,7 @@
+{
+  "name": "Past Forward",
+  "description": "Take a selfie and travel back in time! Past Forward uses AI to reimagine your portrait in the iconic styles of the 1920s, 30s, 50s, 60s, 70s, and 80s.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
