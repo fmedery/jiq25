@@ -18,15 +18,15 @@ const showcaseImages = [
   },
   { 
     decade: '1950s', 
-    imageUrl: 'https://i.imgur.com/bmDhQEz.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    imageUrl: 'https://i.imgur.com/acbmv8P.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   },
   { 
     decade: '1970s', 
-    imageUrl: 'https://i.imgur.com/WDHVAFz.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    imageUrl: 'https://i.imgur.com/7hKN9oc.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   },
   { 
     decade: '1980s', 
-    imageUrl: 'https://i.imgur.com/U6Inuhv.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    imageUrl: 'https://i.imgur.com/YVijRZk.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   },
 ];
 
@@ -52,7 +52,7 @@ const Landing: React.FC<LandingProps> = ({ onStart, texts, language, setLanguage
             key={image.decade}
             src={image.imageUrl}
             alt={`Example portrait with ${image.decade} style`}
-            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
+            className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
           />
         ))}
         {/* Dark overlay on top of images */}
