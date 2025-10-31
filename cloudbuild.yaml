@@ -20,6 +20,37 @@ steps:
       - 'push'
       - 'us-central1-docker.pkg.dev/$PROJECT_ID/jiq25/jiq25-image:latest'
 # Grant the service account the necessary permissions to push to Artifact Registry
+  # Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'demo-jiq-2025'
+      - '--image'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/jiq25/jiq25-image:latest'
+      - '--region'
+      - 'us-central1'
+      - '--platform'
+      - 'managed'
+      - '--no-traffic'
+      - '--quiet'
+  # Direct 100% of traffic to the new revision
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'services'
+      - 'update-traffic'
+      - 'demo-jiq-2025'
+      - '--to-latest'
+      - '--region'
+      - 'us-central1'
+      - '--platform'
+      - 'managed'
+      - '--quiet'
+images:
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/jiq25/jiq25-image:latest'
 serviceAccount: 'projects/$PROJECT_ID/serviceAccounts/jiq25'
 options:
   logging: CLOUD_LOGGING_ONLY
