@@ -1,42 +1,60 @@
+# Past Forward
+
 <div align="center">
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/temp/2
+This project is a web application that uses the Google Gemini API to generate images of a user in different decades. The user can take a selfie, and the application will generate images of them in the 1930s, 1950s, 1960s, 1970s, 1980s, and 2000s.
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
-
-## Deploy to Google Cloud Run
-
 **Prerequisites:**
 
-*   [Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
-*   [Docker](https://docs.docker.com/get-docker/)
+*   Node.js
+*   A Google Gemini API key
 
 **Steps:**
 
-1.  **Authenticate with Google Cloud:**
-    `gcloud auth login`
-2.  **Configure Docker:**
-    `gcloud auth configure-docker`
-3.  **Build the Docker image:**
-    `docker build -t gcr.io/[PROJECT-ID]/[IMAGE-NAME] --build-arg GEMINI_API_KEY=[YOUR-API-KEY] .`
-4.  **Push the Docker image to Google Container Registry:**
-    `docker push gcr.io/[PROJECT-ID]/[IMAGE-NAME]`
-5.  **Deploy to Google Cloud Run:**
-    `gcloud run deploy [SERVICE-NAME] --image gcr.io/[PROJECT-ID]/[IMAGE-NAME] --platform managed --region [REGION] --allow-unauthenticated`
+1.  Install dependencies:
+    ```bash
+    npm install
+    ```
+2.  Create a `.env` file in the root of the project and add your Gemini API key:
+    ```bash
+    GEMINI_API_KEY=your-api-key
+    ```
+3.  Run the app:
+    ```bash
+    npm run dev
+    ```
+    The application will be available at `http://localhost:3000`.
 
-Replace `[PROJECT-ID]`, `[IMAGE-NAME]`, `[YOUR-API-KEY]`, `[SERVICE-NAME]`, and `[REGION]` with your own values.
+## Deployment
+
+### Development
+
+To run the application in a development environment, use the following command:
+
+```bash
+npm run dev
+```
+
+This will start the Vite development server, and the application will be available at `http://localhost:3000`.
+
+### Production
+
+To run the application in a production environment, use the following command:
+
+```bash
+npm start
+```
+
+This will build the application for production and then serve the production build.
+
+## Technologies Used
+
+*   React
+*   TypeScript
+*   Vite
+*   Tailwind CSS
+*   Google Gemini API
