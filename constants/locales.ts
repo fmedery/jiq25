@@ -76,3 +76,5 @@ export const locales: Record<'en' | 'fr', LocaleStrings> = {
     }
   },
 };
+
+export const PROMPT = "Please generate a photograph of the person in this image, reimagining them as if they were living in the {DECADE}. This should be a portrait shot, showing them from the waist up or closer, but ensuring it is not a full-body view. It is important to style them with the distinct fashion and a characteristic hairstyle from that specific era. Do not hesitate to use well-known and even cliché visual elements from the {DECADE} to make it recognizable. The final image must look like a clear, authentic photograph from that time, capturing the era's signature atmosphere, color palette, and film quality.";

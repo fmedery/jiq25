@@ -1,13 +1,10 @@
 import { GoogleGenAI, Modality } from "@google/genai";
+import { PROMPT } from "@/constants/locales";
 
-const DECADES = {
-  1920: "A black and white, slightly grainy, art deco style portrait of the person in the image. They should have 1920s fashion and hairstyle, looking like a photograph from the Roaring Twenties.",
-  1930: "A sepia-toned portrait of the person in the image, reflecting the fashion and mood of the 1930s. The style should be elegant but somber, reminiscent of the Great Depression era photography.",
-  1950: "A vibrant, technicolor-style portrait of the person in the image. They should be dressed in 1950s rock-and-roll fashion with a classic hairstyle from the era. The photo should feel optimistic and clean.",
-  1960: "A vibrant, colorful portrait of the person in the image, capturing the fashion of the late 1960s. Think groovy, flower-power aesthetic with bold patterns, bell-bottoms, and long, natural hair. The background should be bright and artistic, reflecting the optimistic spirit of the era.",
-  1970: "A warm, slightly faded, Kodachrome-style portrait of the person in the image. They should have 1970s disco or folk fashion, with feathered hair or an afro, and a relaxed vibe.",
-  1980: "A portrait of the person in the image with a bold, neon-lit 1980s style. Think big hair, shoulder pads, and vibrant, slightly gaudy makeup. The background should have geometric patterns or a soft-focus glamour shot look.",
-};
+const toTitleCase = (s: string) =>
+  s.replace(/^_*(.)|_+(.)/g, (s, c, d) =>
+    c ? c.toUpperCase() : " " + d.toUpperCase()
+  );
 
 export async function generateDecadeImage(
   base64Image: string,
@@ -23,11 +20,11 @@ export async function generateDecadeImage(
   );
   const pureBase64 = base64Image.substring(base64Image.indexOf(",") + 1);
 
-  const prompt = DECADES[decade as keyof typeof DECADES];
+  const prompt = PROMPT.replace(/{DECADE}/g, toTitleCase(decade.toString()));
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash-image',
+      model: "gemini-1.5-flash",
       contents: {
         parts: [
           {
