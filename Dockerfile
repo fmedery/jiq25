@@ -1,6 +1,6 @@
 # Stage 1: Build the application
-FROM node:22-alpine AS build
-RUN apk update && apk upgrade
+FROM node:22-slim AS build
+RUN apt-get update && apt-get upgrade -y
 
 WORKDIR /app
 
@@ -16,8 +16,8 @@ ENV GEMINI_API_KEY=$GEMINI_API_KEY
 RUN npm run build
 
 # Stage 2: Serve the application
-FROM node:22-alpine
-RUN apk update && apk upgrade
+FROM node:22-slim
+RUN apt-get update && apt-get upgrade -y
 
 WORKDIR /app
 
@@ -29,4 +29,4 @@ RUN npm install --production
 
 EXPOSE 3000
 
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "$PORT"]
+CMD ["sh", "-c", "exec npx serve -s dist -l ${PORT:-3000}"]
