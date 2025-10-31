@@ -19,7 +19,7 @@ const ResultsView: React.FC<ResultsViewProps> = ({ images, onReset, texts }) => 
                 images,
                 texts.contactSheetTitle,
                 texts.contactSheetSubtitle,
-                texts.contactSheetFooter
+                texts.disclaimer
             );
         } catch (error) {
             console.error("Failed to generate contact sheet:", error);

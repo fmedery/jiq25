@@ -17,6 +17,7 @@ export interface LocaleStrings {
     title: string;
     description: string;
     ctaButton: string;
+    disclaimer: string;
   };
   camera: {
     title: string;
@@ -34,10 +35,10 @@ export interface LocaleStrings {
     title: string;
     contactSheetTitle: string;
     contactSheetSubtitle: string;
-    contactSheetFooter: string;
     downloadAllButton: string;
     startOverButton: string;
     downloadTooltip: string;
+    disclaimer: string;
   };
   error: {
     title: string;

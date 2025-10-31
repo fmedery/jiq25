@@ -6,6 +6,7 @@ export const locales: Record<'en' | 'fr', LocaleStrings> = {
       title: 'Past Forward',
       description: 'Travel through time with a selfie. See yourself reimagined in the iconic styles of past decades.',
       ctaButton: 'Take a Selfie',
+      disclaimer: "Your photos are instantly processed, never stored anywhere, and are not used for training.",
     },
     camera: {
         title: 'Ready for your close-up?',
@@ -30,10 +31,10 @@ export const locales: Record<'en' | 'fr', LocaleStrings> = {
       title: 'Your Journey Through Time',
       contactSheetTitle: 'Past Forward',
       contactSheetSubtitle: 'A journey through the decades',
-      contactSheetFooter: 'Made with ❤️ by Google Montreal with Google AI Studio',
       downloadAllButton: 'Download Contact Sheet',
       startOverButton: 'Start Over',
-      downloadTooltip: 'Download Photo'
+      downloadTooltip: 'Download Photo',
+      disclaimer: "Your photos are instantly processed, never stored anywhere (including our servers or Google's), and are never used for training.",
     },
     error: {
         title: 'A Glitch in the Timeline!',
@@ -46,6 +47,7 @@ export const locales: Record<'en' | 'fr', LocaleStrings> = {
       title: 'Passé Recomposé',
       description: 'Voyagez dans le temps avec un selfie. Redécouvrez-vous dans les styles iconiques des décennies passées.',
       ctaButton: 'Prendre un Selfie',
+      disclaimer: "Vos photos sont traitées instantanément, ne sont pas stockées nulle part ni utilisées pour l'entraînement.",
     },
     camera: {
         title: 'Prêt pour votre portrait?',
@@ -70,10 +72,10 @@ export const locales: Record<'en' | 'fr', LocaleStrings> = {
       title: 'Votre Voyage Dans Le Temps',
       contactSheetTitle: 'Passé Recomposé',
       contactSheetSubtitle: 'Un voyage à travers les décennies',
-      contactSheetFooter: 'Fait avec ❤️ par Google Montreal grâce à Google AI Studio',
       downloadAllButton: 'Télécharger la Planche Contact',
       startOverButton: 'Recommencer',
-      downloadTooltip: 'Télécharger la Photo'
+      downloadTooltip: 'Télécharger la Photo',
+      disclaimer: "Vos photos sont traitées instantanément, ne sont jamais stockées nulle part (y compris sur nos serveurs ou ceux de Google), et ne sont jamais utilisées pour l'entraînement.",
     },
     error: {
         title: 'Un Bug dans la Ligne Temporelle!',

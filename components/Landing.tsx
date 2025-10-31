@@ -77,6 +77,7 @@ const Landing: React.FC<LandingProps> = ({ onStart, texts, language, setLanguage
           <LanguageSwitcher language={language} setLanguage={setLanguage} />
         </div>
       </div>
+      <p className="absolute bottom-4 text-xs text-gray-400 max-w-4xl">{texts.disclaimer}</p>
     </div>
   );
 };

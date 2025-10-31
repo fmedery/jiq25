@@ -21,7 +21,7 @@ export const generateContactSheet = async (
     const rows = 2;
     const padding = 50;
     const titleHeight = 120; // Increased for subtitle
-    const footerHeight = 50;
+    const footerHeight = 80;
 
     canvas.width = columns * imgWidth + (columns + 1) * padding;
     canvas.height = rows * imgHeight + (rows + 1) * padding + titleHeight + footerHeight;
@@ -64,8 +64,17 @@ export const generateContactSheet = async (
 
     // Add footer
     ctx.fillStyle = '#F9FAFB';
-    ctx.font = '16px sans-serif';
-    ctx.fillText(footer, canvas.width / 2, canvas.height - 20);
+    ctx.font = '18px sans-serif';
+    ctx.textAlign = 'center';
+    
+    // Split footer text into multiple lines
+    const lines = footer.split('\n');
+    const lineHeight = 24;
+    const footerYStart = canvas.height - footerHeight + 30;
+
+    for (let i = 0; i < lines.length; i++) {
+        ctx.fillText(lines[i], canvas.width / 2, footerYStart + (i * lineHeight));
+    }
     
     downloadCanvas(canvas, 'past-forward-contact-sheet.jpg');
 };
