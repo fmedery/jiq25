@@ -9,6 +9,7 @@ import ResultsView from './components/ResultsView';
 import GeneratingView from './components/GeneratingView';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import GoogleGLogo from './components/GoogleGLogo';
+import DevEnvIndicator from './components/DevEnvIndicator';
 
 const DECADES_TO_GENERATE = [1930, 1950, 1960, 1970, 1980, 2000];
 
@@ -99,11 +100,12 @@ function App() {
   if (step === AppStep.LANDING) {
     return (
       <div className="bg-gray-900 font-sans relative font-raleway">
+        <DevEnvIndicator />
         <div className="absolute top-4 left-4 z-20">
             <GoogleGLogo />
         </div>
-        <Landing 
-            onStart={() => setStep(AppStep.CAMERA)} 
+        <Landing
+            onStart={() => setStep(AppStep.CAMERA)}
             texts={texts.landing}
             language={language}
             setLanguage={setLanguage}
@@ -115,6 +117,7 @@ function App() {
   // Centered layout for the rest of the app
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col items-center justify-center p-4 font-sans relative font-raleway">
+      <DevEnvIndicator />
       <main className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
         {renderContent()}
       </main>
