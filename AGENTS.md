@@ -21,3 +21,4 @@ This file provides guidance to agents when working with code in this repository.
 -   The application interacts with the Google Gemini API through [`services/geminiService.ts`](services/geminiService.ts). Note that a new `GoogleGenAI` instance is created for each API call.
 -   Environment variable `GEMINI_API_KEY` is injected at build time via [`vite.config.ts`](vite.config.ts). It must be present in a `.env` file at the project root.
 -   Custom image manipulation logic, including generating a contact sheet, is located in [`utils/imageUtils.ts`](utils/imageUtils.ts).
+-   The Gemini model version is managed by the user and should not be changed.

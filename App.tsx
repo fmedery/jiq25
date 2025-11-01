@@ -2,7 +2,7 @@ import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import type { GeneratedImage, Language } from './types';
 import { AppStep } from './types';
 import { locales } from './constants/locales';
-import { generateDecadeImage } from './services/geminiService';
+import { getGeminiService } from './services/geminiService';
 import Landing from './components/Landing';
 import CameraView from './components/CameraView';
 import ResultsView from './components/ResultsView';
@@ -53,13 +53,20 @@ function App() {
     setGeneratedImages([]); // Clear previous results
     
     try {
+        const geminiService = getGeminiService();
         const promises = DECADES_TO_GENERATE.map(async (decade) => {
-            const generatedSrc = await generateDecadeImage(selfieData, decade);
-            const newImage: GeneratedImage = { decade, src: generatedSrc };
-            // Update state as each image completes, triggering a re-render
-            setGeneratedImages(prevImages => 
-                [...prevImages, newImage].sort((a, b) => a.decade - b.decade)
-            );
+            try {
+                const generatedSrc = await geminiService.generateDecadeImage(selfieData, decade);
+                const newImage: GeneratedImage = { decade, src: generatedSrc };
+                // Update state as each image completes, triggering a re-render
+                setGeneratedImages(prevImages =>
+                    [...prevImages, newImage].sort((a, b) => a.decade - b.decade)
+                );
+            } catch (err) {
+                console.error(`Failed to generate image for decade ${decade}:`, err);
+                // Optionally, you could update the UI to show which decade failed
+                throw err; // Re-throw to be caught by Promise.all
+            }
         });
 
         await Promise.all(promises);
