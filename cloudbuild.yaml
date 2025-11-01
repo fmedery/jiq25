@@ -19,7 +19,6 @@ steps:
     args:
       - 'push'
       - 'us-central1-docker.pkg.dev/$PROJECT_ID/jiq25/jiq25-image:latest'
-# Grant the service account the necessary permissions to push to Artifact Registry
   # Deploy to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
