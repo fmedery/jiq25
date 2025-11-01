@@ -20,10 +20,10 @@ export const locales: Record<'en' | 'fr', LocaleStrings> = {
       progress: (current, total) => `Generating images... (${current}/${total})`,
       messages: [
         'Polishing the chrome on the DeLorean...',
+        'Wax on, wax off',
         'Adjusting the flux capacitor...',
         'Syncing timelines...',
         'Rummaging through vintage wardrobes...',
-        'Wax on, wax off',
         'Man who catch fly with chopstick, accomplish anything',
         'Developing the film...',
         'Applying a sepia filter...',
@@ -63,10 +63,10 @@ export const locales: Record<'en' | 'fr', LocaleStrings> = {
       progress: (current, total) => `Génération des images... (${current}/${total})`,
       messages: [
         'Polissage du chrome de la DeLorean...',
+        'Lustrer, frotter',
         'Ajustement du convecteur temporel...',
         'Synchronisation des lignes temporelles...',
         'Fouille dans les garde-robes vintage...',
-        'Lustrer, frotter',
         'Homme qui attrape mouche avec des baguettes est homme qui réussit tout',
         'Développement de la pellicule...',
         "Application d'un filtre sépia...",
