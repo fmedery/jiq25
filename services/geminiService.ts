@@ -1,5 +1,5 @@
 import { GoogleGenAI, Modality } from "@google/genai";
-import { PROMPT } from "@/constants/locales";
+import { PROMPT, PROMPT_2020 } from "@/constants/locales";
 
 const toTitleCase = (s: string) =>
   s.replace(/^_*(.)|_+(.)/g, (s, c, d) =>
@@ -20,7 +20,9 @@ export async function generateDecadeImage(
   );
   const pureBase64 = base64Image.substring(base64Image.indexOf(",") + 1);
 
-  const prompt = PROMPT.replace(/{DECADE}/g, toTitleCase(decade.toString()));
+  const prompt = decade === 2020
+    ? PROMPT_2020
+    : PROMPT.replace(/{DECADE}/g, toTitleCase(decade.toString()));
 
   try {
     const response = await ai.models.generateContent({
