@@ -11,7 +11,21 @@ import LanguageSwitcher from './components/LanguageSwitcher';
 import GoogleGLogo from './components/GoogleGLogo';
 import DevEnvIndicator from './components/DevEnvIndicator';
 
-const DECADES_TO_GENERATE = [1930, 1950, 1960, 1970, 1980, 2000];
+const getDecades = () => {
+  const allDecades = [1890, 1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010];
+  const decades: number[] = [];
+  
+  // Pick a random starting point that allows for 5 more decades (6 total) with 20-year gaps
+  const startIndex = Math.floor(Math.random() * (allDecades.length - 5 * 2));
+  
+  for (let i = 0; i < 6; i++) {
+    decades.push(allDecades[startIndex + i * 2]);
+  }
+  
+  return decades;
+};
+
+const DECADES_TO_GENERATE = getDecades();
 
 function App() {
   const [step, setStep] = useState<AppStep>(AppStep.LANDING);
