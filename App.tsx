@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useMemo, useEffect } from 'react';
+import * as gtag from './utils/gtag';
 import type { GeneratedImage, Language } from './types';
 import { AppStep } from './types';
 import { locales } from './constants/locales';
@@ -62,6 +63,12 @@ function App() {
                 setGeneratedImages(prevImages =>
                     [...prevImages, newImage].sort((a, b) => a.decade - b.decade)
                 );
+               gtag.event({
+                 action: 'generate_image',
+                 category: 'Image Generation',
+                 label: `Decade: ${decade}`,
+                 value: 1,
+               });
             } catch (err) {
                 console.error(`Failed to generate image for decade ${decade}:`, err);
                 // Optionally, you could update the UI to show which decade failed
@@ -83,6 +90,26 @@ function App() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step, selfie]);
+
+  useEffect(() => {
+    gtag.pageview(new URL(window.location.href));
+  }, [step]);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`;
+    script.async = true;
+    document.head.appendChild(script);
+
+    const script2 = document.createElement('script');
+    script2.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${gtag.GA_TRACKING_ID}');
+    `;
+    document.head.appendChild(script2);
+  }, []);
 
   const renderContent = () => {
     if (error) {

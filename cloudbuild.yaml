@@ -11,6 +11,8 @@ steps:
       - 'build'
       - '--build-arg'
       - 'GEMINI_API_KEY=${_GEMINI_API_KEY}'
+      - '--build-arg'
+      - 'GA_TRACKING_ID=${_GA_TRACKING_ID}'
       - '-t'
       - 'us-central1-docker.pkg.dev/$PROJECT_ID/jiq25/jiq25-image:latest'
       - '.'
