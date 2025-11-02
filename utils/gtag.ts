@@ -4,6 +4,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: URL) => {
+  console.log(`GA: pageview called for ${url}`);
   if (!isProduction) {
     return;
   }

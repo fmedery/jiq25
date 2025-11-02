@@ -96,9 +96,13 @@ function App() {
   }, [step]);
 
   useEffect(() => {
+    console.log('GA: Initializing GA script');
     const script = document.createElement('script');
     script.src = `https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`;
     script.async = true;
+    script.onload = () => {
+      console.log('GA: gtag.js script loaded');
+    };
     document.head.appendChild(script);
 
     const script2 = document.createElement('script');
@@ -107,6 +111,7 @@ function App() {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', '${gtag.GA_TRACKING_ID}');
+      console.log('GA: GA configured');
     `;
     document.head.appendChild(script2);
   }, []);
