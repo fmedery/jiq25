@@ -54,6 +54,7 @@ const ResultsView: React.FC<ResultsViewProps> = ({ images, onReset, texts }) => 
                     {isDownloading ? 'Generating...' : texts.downloadAllButton}
                 </button>
             </div>
+            <p className="text-xs text-gray-400 mt-8 max-w-2xl text-center">{texts.disclaimer}</p>
         </div>
     );
 };
