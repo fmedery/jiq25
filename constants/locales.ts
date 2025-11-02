@@ -16,7 +16,7 @@ export const locales: Record<'en' | 'fr', LocaleStrings> = {
     },
     generating: {
       title: "Hold on to your hats, we're warming up the time machine!",
-      subtitle: "Made with ❤️ by fmedery  with Google AI Studio",
+      subtitle: "Made with ❤️ by Google Montreal with Google AI Studio",
       progress: (current, total) => `Generating images... (${current}/${total})`,
       messages: [
         'Polishing the chrome on the DeLorean...',
@@ -59,7 +59,7 @@ export const locales: Record<'en' | 'fr', LocaleStrings> = {
     },
     generating: {
       title: 'Accrochez-vous, on préchauffe la machine à remonter le temps !',
-      subtitle: "Fait avec ❤️ par fmedery grâce à Google AI Studio",
+      subtitle: "Fait avec ❤️ par Google Montreal grâce à Google AI Studio",
       progress: (current, total) => `Génération des images... (${current}/${total})`,
       messages: [
         'Polissage du chrome de la DeLorean...',
