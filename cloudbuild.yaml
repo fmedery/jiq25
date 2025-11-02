@@ -1,12 +1,10 @@
 steps:
   # Install dependencies
   - name: 'gcr.io/cloud-builders/npm'
-    entrypoint: 'npx'
-    args: ['--yes', 'node@22.16', 'npm', 'install']
+    args: ['install']
   # Build the application
   - name: 'gcr.io/cloud-builders/npm'
-    entrypoint: 'npx'
-    args: ['--yes', 'node@22.16', 'npm', 'run', 'build']
+    args: ['run', 'build']
     env:
       - 'GA_TRACKING_ID=${_GA_TRACKING_ID}'
       - 'GEMINI_API_KEY=${_GEMINI_API_KEY}'
