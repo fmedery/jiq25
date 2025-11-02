@@ -13,17 +13,16 @@ import GoogleGLogo from './components/GoogleGLogo';
 import DevEnvIndicator from './components/DevEnvIndicator';
 
 const getDecades = () => {
-  const allDecades = [1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020];
-  const decades: number[] = [];
+  const allDecades = [1900, 1920, 1930, 1950, 1960, 1970, 1980, 1990, 2000, 2020];
   
-  // Pick a random starting point that allows for 5 more decades (6 total) with 20-year gaps
-  const startIndex = Math.floor(Math.random() * (allDecades.length - 5 * 2));
-  
-  for (let i = 0; i < 6; i++) {
-    decades.push(allDecades[startIndex + i * 2]);
+  // Shuffle the array using Fisher-Yates algorithm
+  for (let i = allDecades.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [allDecades[i], allDecades[j]] = [allDecades[j], allDecades[i]];
   }
   
-  return decades;
+  // Return the first 6 decades from the shuffled array, sorted chronologically
+  return allDecades.slice(0, 6).sort((a, b) => a - b);
 };
 
 const DECADES_TO_GENERATE = getDecades();
