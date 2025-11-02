@@ -21,7 +21,8 @@ export default defineConfig(({ mode }) => {
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
         'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GA_TRACKING_ID': JSON.stringify(env.GA_TRACKING_ID)
+        'process.env.GA_TRACKING_ID': JSON.stringify(env.GA_TRACKING_ID),
+        'import.meta.env.GA_TRACKING_ID': JSON.stringify(env.GA_TRACKING_ID)
       },
       resolve: {
         alias: {

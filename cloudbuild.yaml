@@ -5,6 +5,9 @@ steps:
   # Build the application
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'build']
+    env:
+      - 'GA_TRACKING_ID=${_GA_TRACKING_ID}'
+      - 'GEMINI_API_KEY=${_GEMINI_API_KEY}'
   # Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
     args:
