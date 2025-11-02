@@ -15,8 +15,8 @@ const DownloadIcon = () => (
 
 
 const ImageCard: React.FC<ImageCardProps> = ({ image, texts }) => {
-  const handleDownload = () => {
-    downloadImage(image.src, `past-forward-${image.decade}.jpg`);
+  const handleDownload = async () => {
+    await downloadImage(image.src, `past-forward-${image.decade}.jpg`);
   };
 
   return (

@@ -96,11 +96,38 @@ const downloadCanvas = (canvas: HTMLCanvasElement, filename: string) => {
     link.click();
 }
 
-export const downloadImage = (src: string, filename: string) => {
-    const link = document.createElement('a');
-    link.href = src;
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+export const downloadImage = async (src: string, filename: string) => {
+    try {
+        // Fetch the image
+        const response = await fetch(src);
+        const blob = await response.blob();
+        const file = new File([blob], filename, { type: blob.type });
+
+        // Check if the Web Share API is available and can share files
+        if (navigator.share && navigator.canShare({ files: [file] })) {
+            await navigator.share({
+                files: [file],
+                title: 'Past Forward Image',
+                text: 'Check out this image from Past Forward!',
+            });
+        } else {
+            // Fallback for browsers that do not support Web Share API
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(link.href);
+        }
+    } catch (error) {
+        console.error('Error downloading image:', error);
+        // Fallback to original method on any error
+        const link = document.createElement('a');
+        link.href = src;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
 };
