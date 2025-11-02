@@ -96,6 +96,10 @@ const downloadCanvas = (canvas: HTMLCanvasElement, filename: string) => {
     link.click();
 }
 
+const isMobile = () => {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
 export const downloadImage = async (src: string, filename: string) => {
     try {
         // Fetch the image
@@ -103,15 +107,15 @@ export const downloadImage = async (src: string, filename: string) => {
         const blob = await response.blob();
         const file = new File([blob], filename, { type: blob.type });
 
-        // Check if the Web Share API is available and can share files
-        if (navigator.share && navigator.canShare({ files: [file] })) {
+        // Use Web Share API on mobile devices
+        if (isMobile() && navigator.share && navigator.canShare({ files: [file] })) {
             await navigator.share({
                 files: [file],
                 title: 'Past Forward Image',
                 text: 'Check out this image from Past Forward!',
             });
         } else {
-            // Fallback for browsers that do not support Web Share API
+            // Fallback for desktop or browsers that do not support Web Share API
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
             link.download = filename;
