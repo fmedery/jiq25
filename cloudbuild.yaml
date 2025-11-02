@@ -1,9 +1,12 @@
 steps:
   # Install dependencies
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['install']
+    entrypoint: 'npx'
+    args: ['--yes', 'node@22.16', 'npm', 'install']
   # Build the application
   - name: 'gcr.io/cloud-builders/npm'
+    entrypoint: 'npx'
+    args: ['--yes', 'node@22.16', 'npm', 'run', 'build']
     args: ['run', 'build']
     env:
       - 'GA_TRACKING_ID=${_GA_TRACKING_ID}'

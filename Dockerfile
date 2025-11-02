@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM node:22-slim AS build
+FROM node:22.16-slim AS build
 RUN apt-get update && apt-get upgrade -y
 
 WORKDIR /app
@@ -19,7 +19,7 @@ ENV GA_TRACKING_ID=$GA_TRACKING_ID
 RUN npm run build
 
 # Stage 2: Serve the application
-FROM node:22-slim
+FROM node:22.16-slim
 RUN apt-get update && apt-get upgrade -y
 
 WORKDIR /app
