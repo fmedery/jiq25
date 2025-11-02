@@ -37,6 +37,8 @@ export const locales: Record<'en' | 'fr', LocaleStrings> = {
       startOverButton: 'Start Over',
       downloadTooltip: 'Download Photo',
       disclaimer: "Your photos are instantly processed, never stored anywhere (including our servers or Google's), and are never used for training.",
+      shareTitle: 'Past Forward Image',
+      shareText: 'Check out this image from Past Forward!',
     },
     error: {
         title: 'A Glitch in the Timeline!',
@@ -80,6 +82,8 @@ export const locales: Record<'en' | 'fr', LocaleStrings> = {
       startOverButton: 'Recommencer',
       downloadTooltip: 'Télécharger la Photo',
       disclaimer: "Vos photos sont traitées instantanément, ne sont jamais stockées nulle part (y compris sur nos serveurs ou ceux de Google), et ne sont jamais utilisées pour l'entraînement.",
+      shareTitle: 'Image Passé Recomposé',
+      shareText: 'Regardez cette image de Passé Recomposé !',
     },
     error: {
         title: 'Un Bug dans la Ligne Temporelle!',

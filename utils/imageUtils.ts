@@ -100,7 +100,7 @@ const isMobile = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
-export const downloadImage = async (src: string, filename: string) => {
+export const downloadImage = async (src: string, filename: string, shareTitle: string, shareText: string) => {
     try {
         // Fetch the image
         const response = await fetch(src);
@@ -109,11 +109,20 @@ export const downloadImage = async (src: string, filename: string) => {
 
         // Use Web Share API on mobile devices
         if (isMobile() && navigator.share && navigator.canShare({ files: [file] })) {
-            await navigator.share({
-                files: [file],
-                title: 'Past Forward Image',
-                text: 'Check out this image from Past Forward!',
-            });
+            try {
+                await navigator.share({
+                    files: [file],
+                    title: shareTitle,
+                    text: shareText,
+                });
+            } catch (error) {
+                // If the user cancels the share dialog, do not trigger the download
+                if (error.name === 'AbortError') {
+                    return;
+                }
+                // For other errors, fall back to download
+                throw error;
+            }
         } else {
             // Fallback for desktop or browsers that do not support Web Share API
             const link = document.createElement('a');

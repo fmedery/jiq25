@@ -39,6 +39,8 @@ export interface LocaleStrings {
     startOverButton: string;
     downloadTooltip: string;
     disclaimer: string;
+    shareTitle: string;
+    shareText: string;
   };
   error: {
     title: string;
