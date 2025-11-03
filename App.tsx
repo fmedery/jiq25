@@ -29,7 +29,7 @@ const DECADES_TO_GENERATE = getDecades();
 
 function App() {
   const [step, setStep] = useState<AppStep>(AppStep.LANDING);
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>('fr');
   const [selfie, setSelfie] = useState<string | null>(null);
   const [generatedImages, setGeneratedImages] = useState<GeneratedImage[]>([]);
   const [error, setError] = useState<string | null>(null);
