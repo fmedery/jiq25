@@ -15,6 +15,11 @@ import DevEnvIndicator from './components/DevEnvIndicator';
 const getDecades = () => {
   const allDecades = [1920, 1950, 1960, 1970, 1980, 1990, 2000, 2020];
   
+  if (import.meta.env.DEV) {
+    // In development, return all decades sorted chronologically
+    return allDecades.sort((a, b) => a - b);
+  }
+  
   // Shuffle the array using Fisher-Yates algorithm
   for (let i = allDecades.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
