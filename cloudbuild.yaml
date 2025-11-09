@@ -8,6 +8,7 @@ steps:
     env:
       - 'GA_TRACKING_ID=${_GA_TRACKING_ID}'
       - 'GEMINI_API_KEY=${_GEMINI_API_KEY}'
+      - 'VITE_GA_TRACKING_ID=${_GA_TRACKING_ID}'
   # Pull the latest image to use as a cache
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
@@ -22,6 +23,8 @@ steps:
       - 'GEMINI_API_KEY=${_GEMINI_API_KEY}'
       - '--build-arg'
       - 'GA_TRACKING_ID=${_GA_TRACKING_ID}'
+      - '--build-arg'
+      - 'VITE_GA_TRACKING_ID=${_GA_TRACKING_ID}'
       - '--cache-from'
       - 'us-central1-docker.pkg.dev/$PROJECT_ID/jiq25/jiq25-image:latest'
       - '-t'
