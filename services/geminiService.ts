@@ -1,5 +1,5 @@
 import { GoogleGenAI, Modality } from "@google/genai";
-import { PROMPT, PROMPT_2020 } from "@/constants/locales";
+import { PROMPT, PROMPT_1920, PROMPT_2020 } from "@/constants/locales";
 
 const toTitleCase = (s: string) =>
   s.replace(/^_*(.)|_+(.)/g, (s, c, d) =>
@@ -23,9 +23,12 @@ class GeminiService {
     );
     const pureBase64 = base64Image.substring(base64Image.indexOf(",") + 1);
 
-    const prompt = decade === 2020
-      ? PROMPT_2020
-      : PROMPT.replace(/{DECADE}/g, toTitleCase(decade.toString()));
+    const prompt =
+      decade === 2020
+        ? PROMPT_2020
+        : decade === 1920
+        ? PROMPT_1920
+        : PROMPT.replace(/{DECADE}/g, toTitleCase(decade.toString()));
 
     try {
       const response = await this.ai.models.generateContent({
