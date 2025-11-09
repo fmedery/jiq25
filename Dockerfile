@@ -7,8 +7,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-COPY . .
-
 # Pass GEMINI_API_KEY as a build argument
 ARG GEMINI_API_KEY
 ENV GEMINI_API_KEY=$GEMINI_API_KEY
@@ -16,6 +14,7 @@ ENV GEMINI_API_KEY=$GEMINI_API_KEY
 ARG GA_TRACKING_ID
 ENV GA_TRACKING_ID=$GA_TRACKING_ID
 
+COPY . .
 RUN npm run build
 
 # Stage 2: Serve the application
