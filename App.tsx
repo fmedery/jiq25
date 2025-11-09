@@ -13,7 +13,7 @@ import GoogleGLogo from './components/GoogleGLogo';
 import DevEnvIndicator from './components/DevEnvIndicator';
 
 const getDecades = () => {
-  const allDecades = [1900, 1920, 1930, 1950, 1960, 1970, 1980, 1990, 2000, 2020];
+  const allDecades = [1900, 1920, 1950, 1960, 1970, 1980, 1990, 2000, 2020];
   
   // Shuffle the array using Fisher-Yates algorithm
   for (let i = allDecades.length - 1; i > 0; i--) {
