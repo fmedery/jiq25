@@ -3,7 +3,7 @@ import type { LocaleStrings } from '../types';
 export const locales: Record<'en' | 'fr', LocaleStrings> = {
   en: {
     landing: {
-      title: 'Past Forward',
+      title: 'TimeStamp',
       description: 'Travel through time with a selfie. See yourself reimagined in the iconic styles of past decades.',
       ctaButton: 'Take a Selfie',
       disclaimer: "Your photos are processed in memory and are not stored. They are not used for model training.",
@@ -31,14 +31,14 @@ export const locales: Record<'en' | 'fr', LocaleStrings> = {
     },
     results: {
       title: 'Your Journey Through Time',
-      contactSheetTitle: 'Past Forward',
+      contactSheetTitle: 'TimeStamp',
       contactSheetSubtitle: 'A journey through the decades',
       downloadAllButton: 'Download Contact Sheet',
       startOverButton: 'Start Over',
       downloadTooltip: 'Download Photo',
       disclaimer: "Your photos are processed in memory and never stored. They are not used for training purposes.",
-      shareTitle: 'Past Forward Image',
-      shareText: 'Check out this image from Past Forward!',
+      shareTitle: 'TimeStamp Image',
+      shareText: 'Check out this image from TimeStamp!',
     },
     error: {
         title: 'A Glitch in the Timeline!',
